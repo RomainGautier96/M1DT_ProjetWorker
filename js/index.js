@@ -1,63 +1,55 @@
-const displayContinents = () => {
-
-    let listAllContinents = document.getElementById("test");
-
-
-    const afrique = "<li class='list-group-item'> <img src='assets/img/afrique.png'> <div id='Afrique'></div> </li>";
-    listAllContinents.innerHTML = afrique;
-
-    const europe = "<li class='list-group-item'> <img src='assets/img/europe.png'> <div id='Europe'></div></li>";
-    listAllContinents.innerHTML += europe;
-    displayCountriesByContinent("Europe");
-
-    const amerique = "<li class='list-group-item'> <img src='assets/img/amerique.png'> <div id='Amerique'></div></li>";
-    listAllContinents.innerHTML += amerique;
-
-    const asie = "<li class='list-group-item'> <img src='assets/img/asie.jpg'> <div id='Asie'></div></li>";
-    listAllContinents.innerHTML += asie;
-
-    const oceanie = "<li class='list-group-item'> <img src='assets/img/oceanie.png'> <div id='Oceanie'></div></li>";
-    listAllContinents.innerHTML += oceanie;
-
-};
-
-
-
-
-let countries = [];
-let myWorker;
-
+let countries = []
+let myWorker
 if(window.Worker){
     myWorker = new Worker('js/worker.js');
     myWorker.onmessage = (event) => {
-        searchCountries(event);
+        searchCountries(event)
     }
 }
-
 const searchCountries = (event) => {
     if(myWorker){
         myWorker.postMessage({countries: countries})
     }
-
     countries = event.data.countries;
-    return countries;
-};
-
-
-const displayCountriesByContinent = (continent) => {
-    let countries = searchCountries();
-    console.log("bbbbbb");
-    console.log( "test" + countries);
-    const allCountries = countries.map((items) => {
-            if (items.region === continent){
-                return "<li class='list-group-item'>"+"Pays: "+items.name+"</li>";
-            }
+    let listEurope = document.getElementById("Europe")
+    let listAsia = document.getElementById("Asie")
+    let listAmerica = document.getElementById("Amerique")
+    let listAfrica = document.getElementById("Afrique")
+    let listOceania = document.getElementById("Oceanie")
+    const EuropeCountries = countries.map((items) => {
+        if (items.region === "Europe") {
+            let europe =  "<li class='list-group-item'>"+"<img src='"+items.flag+"' width='50px' height='30px'> "+items.name+ " , "+ "Capitale : "+items.capital+" , " + "Langue :  "+items.languages[0].name+" , "+ "Devise : "+items.currencies[0].name+"</li>";
+            return europe
+        }
     });
-
-    let listAllCountries = document.getElementById(continent);
-    listAllCountries.innerHTML = allCountries.join('');
-
-
+    const AsiaCountries = countries.map((items) => {
+        if (items.region === "Asia") {
+            let asia =  "<li class='list-group-item'>"+"<img src='"+items.flag+"' width='50px' height='30px'> "+items.name+ " , "+ "Capitale : "+items.capital+" , " + "Langue :  "+items.languages[0].name+" , "+ "Devise : "+items.currencies[0].name+"</li>";
+            return asia
+        }
+    });
+    const AmericaCountries = countries.map((items) => {
+        if (items.region === "Americas") {
+            let america =  "<li class='list-group-item'>"+"<img src='"+items.flag+"' width='50px' height='30px'> "+items.name+ " , "+ "Capitale : "+items.capital+" , " + "Langue :  "+items.languages[0].name+" , "+ "Devise : "+items.currencies[0].name+"</li>";
+            return america
+        }
+    });
+    const AfricaCountries = countries.map((items) => {
+        if (items.region === "Africa") {
+            let africa =  "<li class='list-group-item'>"+"<img src='"+items.flag+"' width='50px' height='30px'> "+items.name+ " , "+ "Capitale : "+items.capital+" , " + "Langue :  "+items.languages[0].name+" , "+ "Devise : "+items.currencies[0].name+"</li>";
+            return africa
+        }
+    });
+    const OceaniaCountries = countries.map((items) => {
+        if (items.region === "Oceania") {
+            let oceania =  "<li class='list-group-item'>"+"<img src='"+items.flag+"' width='50px' height='30px'> "+items.name+ " , "+ "Capitale : "+items.capital+" , " + "Langue :  "+items.languages[0].name+" , "+ "Devise : "+items.currencies[0].name+"</li>";
+            return oceania
+        }
+    });
+    listEurope.innerHTML = EuropeCountries.join('')
+    listAsia.innerHTML = AsiaCountries.join('')
+    listAmerica.innerHTML = AmericaCountries.join('')
+    listOceania.innerHTML = OceaniaCountries.join('')
+    listAfrica.innerHTML = AfricaCountries.join('')
 };
-
-displayContinents();
+searchCountries()
