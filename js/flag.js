@@ -15,7 +15,9 @@ const searchCountries = (event) => {
 
     countries = event.data.countries
     const allCountries = countries.map((items) => {
-        return "<li class='list-group-item'>"+"Pays: "+items.name+ " , "+ "<img src='"+items.flag+"' width='150px' height='100px'></li>";
+        if(items.region === "Europe"){
+            return "<li class='list-group-item'>"+"Pays: "+items.name+ " , "+ "Capitale : "+items.capital+" , " + "Drapeau :  <img src='"+items.flag+"' width='150px' height='100px'> , Langue :  "+items.languages[0].name+" , "+ "Devise : "+items.currencies[0].name+"</li>";
+        }
     })
 
     let listAllCountries = document.getElementById("test")
