@@ -4,4 +4,4 @@
 https://restcountries.eu/
 
 ## Auteur: 
-Romain Gauthier, Mathias Dupont (Dakistos), Thomas Briot 
+Romain Gautier, Mathias Dupont (Dakistos), Thomas Briot 
