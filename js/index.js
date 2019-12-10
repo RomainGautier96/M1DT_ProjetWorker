@@ -6,6 +6,7 @@ if(window.Worker){
         searchCountries(event)
     }
 }
+
 const searchCountries = (event) => {
     if(myWorker){
         myWorker.postMessage({countries: countries})
