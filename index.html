@@ -8,11 +8,11 @@
 </head>
 <body>
 <div class="countries" id="test">
-    <li class='list-group-item'> <img src='assets/img/europe.png'> <div class="notVisible" id='Europe'></div></li>
-    <li class='list-group-item'> <img src='assets/img/afrique.png'> <div class="notVisible" id='Afrique'></div> </li>
-    <li class='list-group-item'> <img src='assets/img/amerique.png'> <div  class="notVisible" id='Amerique'></div></li>
-    <li class='list-group-item'> <img src='assets/img/asie.jpg'> <div  class="notVisible" id='Asie'></div></li>
-    <li class='list-group-item'> <img src='assets/img/oceanie.png'> <div class="notVisible" id='Oceanie'></div></li>
+    <li class='list-group-item' id="EuropeCard"> <img src='assets/img/europe.png'> <button class="btn btn-dark dropdown-toggle btn-link" data-toggle="collapse" data-target="#Europe">Europe</button> <div class="notVisible collapse" id='Europe' aria-labelledby="EuropeCard" data-parent="#test"> </div></li>
+    <li class='list-group-item' id="AfriqueCard"> <img src='assets/img/afrique.png'> <button class="btn btn-dark dropdown-toggle btn-link" data-toggle="collapse" data-target="#Afrique">Afrique</button> <div class="notVisible collapse" id='Afrique' aria-labelledby="AfriqueCard" data-parent="#test"></div> </li>
+    <li class='list-group-item' id="AmeriqueCard"> <img src='assets/img/amerique.png'> <button class="btn btn-dark dropdown-toggle btn-link" data-toggle="collapse" data-target="#Amerique">Amérique</button> <div class="notVisible collapse" id='Amerique' aria-labelledby="AmeriqueCard" data-parent="#test"></div></li>
+    <li class='list-group-item' id="AsieCard"> <img src='assets/img/asie.jpg'> <button class="btn btn-dark dropdown-toggle btn-link" data-toggle="collapse" data-target="#Asie">Asie</button> <div  class="notVisible collapse" id='Asie' aria-labelledby="AsieCard" data-parent="#test"></div></li>
+    <li class='list-group-item' id="OceanieCard"> <img src='assets/img/oceanie.png'> <button class="btn btn-dark dropdown-toggle btn-link" data-toggle="collapse" data-target="#Oceanie">Océanie</button>  <div class="notVisible collapse" id='Oceanie' aria-labelledby="OceanieCard" data-parent="#test"></div></li>
 </div>
 
 <script src="js/index.js"></script>
