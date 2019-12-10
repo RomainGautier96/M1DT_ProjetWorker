@@ -1,0 +1,16 @@
+.notVisible{
+    display: none;
+}
+
+.visible{
+    display:block;
+}
+
+body {
+    background-color: #eee !important;
+}
+.list-group-item{
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px;
+}
